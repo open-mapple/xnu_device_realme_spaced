@@ -1,5 +1,5 @@
 #!/bin/bash
-# The realme 8i's firmware, out of YOUR phone's Android, into fw-*/ (at the top of the HakiOS tree, or next to this repository's mtkloader/)
+# The realme 8i's firmware, out of YOUR phone's Android, into fw-*/ (at the top of the Open Mapple tree, or next to this repository's mtkloader/)
 # (git ignores them: they are the vendor's, and nothing of the vendor's is in the repository).
 #
 #   fw-touch/FW_NF_ILI7807S_*.bin   the touch controller's (Ilitek ILI7807S, no flash: it is sent at every reset). The
@@ -11,14 +11,14 @@
 # (Magisk's su): they are copied to a temporary folder, pulled, and the folder is removed. Read only:
 # nothing on the phone is changed.
 set -e
-S=${HAKIOS_SERIAL:?set HAKIOS_SERIAL to the serial of your phone, as adb devices shows it}
-# into the top of the HakiOS tree this repository is synced into (devices/spaced/), where mtk/loader looks; else (or with a
-# directory given) next to this repository's own mtkloader/. The top is cut from the path, not reached by ../..,
-# which would leave through the devices/spaced symlink
+S=${MAPPLE_SERIAL:?set MAPPLE_SERIAL to the serial of your phone, as adb devices shows it}
+# Into the top of the Open Mapple tree this repository is synced into (devices/spaced/), where mtk/loader looks;
+# else (or with a directory given) next to this repository's mtkloader/. The top is cut from the path: ../.. would
+# leave through the devices/spaced symlink.
 HERE="$(cd "$(dirname "$0")" && pwd)"
 TOP="${HERE%/devices/*}"
 if [ -z "${1:-}" ] && [ -d "$TOP/mtk/loader" ]; then OUT="$TOP"; else OUT="${1:-$HERE}"; fi
-TMP=/data/local/tmp/hakios-fw
+TMP=/data/local/tmp/mapple-fw
 CONNSYS="soc2_2_ram_mcu_2_1_hdr.bin soc2_2_ram_wifi_2_1_hdr.bin soc2_2_ram_bt_2_1_hdr.bin
 	WIFI_RAM_CODE_soc2_2_2_1.bin WMT_SOC.cfg BT_FW.cfg"
 

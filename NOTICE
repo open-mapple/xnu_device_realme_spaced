@@ -14,3 +14,9 @@ public sources, which are named where they are used:
 
 Not in this repository, by design (LEGAL.md): any file of iOS, any vendor firmware (pulled from the
 user's own phone by pull-firmware.sh), any image of the phone, any screenshot.
+
+Open Mapple
+  This repository carries on hakios-mt6768's history for the realme 8i (spaced); the notice above is HakiOS's
+  and still applies to what came from it. It no longer holds a kernel/ (the SoC's drivers are in
+  kernel/mediatek/mt6781): everything here is MIT (LICENSE), with the Open Mapple authors' changes under the
+  same licence.

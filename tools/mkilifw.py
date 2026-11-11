@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# The ILI7807S's touch firmware (fw-touch/FW_NF_ILI7807S_*.bin, pulled off YOUR phone by pull-firmware.sh) as a C
+# The ILI7807S's touch firmware (fw-touch/FW_NF_ILI7807S_*.bin, pulled off your phone by pull-firmware.sh) as a C
 # header for mtkloader (mtkili.h, ILI_DOWNLOAD=1). The file is a vendor wrapper ("FwUp", up to the first ':') around
 # Intel HEX with ILITEK's own records: 0xAF names a block (start, end, number), 0xB0 moves one in the chip's memory.
-# Laid out as ILITEK's driver does (read, not copied): blocks AP 1, DATA 2, TUNING 3 are what a normal start loads;
-# AP goes to 0, DATA to 0x20610, TUNING right after DATA, unless a 0xB0 record says otherwise. Each block ends in the
-# CRC32 (MSB first, polynomial 0x04C11DB7, start 0xFFFFFFFF, no final xor) of the rest, which is checked here.
-# The header is the vendor's code: it is never committed (mtk/.gitignore).
+# Layout as in ILITEK's driver (read, not copied): a normal start loads blocks AP 1, DATA 2, TUNING 3; AP goes to 0,
+# DATA to 0x20610, TUNING right after DATA, unless a 0xB0 record says otherwise. Each block ends in the CRC32 (MSB
+# first, polynomial 0x04C11DB7, start 0xFFFFFFFF, no final xor) of the rest, checked here.
+# The header is the vendor's code: never committed (.gitignore).
 # usage: mkilifw.py FIRMWARE OUT.h
 import sys
 

@@ -31,3 +31,9 @@ mtkloader/*.img
 *.dylib
 __pycache__/
 .DS_Store
+
+# iOSOnAnd tracker: local keys, the CLI and the offline queue stay out of git
+.env
+.env.*
+cli.mjs
+TRACKER_QUEUE.md
